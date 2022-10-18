@@ -25,14 +25,279 @@ include::subscribe.html[]
 ++++
 
 // asciidoctor -r asciidoctor-mathematical -a mathematical-format=png --backend html5 -a data-uri modelling-and-simulation.adoc // png and embede png as part of html is better 
+// asciidoctor --backend html5 -a data-uri modelling-and-simulation.adoc
 
-== Introduction 
+// == Introduction 
 
-=== Stochastic Process 
+// === Stochastic Process 
 
 
 
+// [NOTE]
+// ====
+// Two engineers made three fried-chips-making machines and started a hotel business in town. They currently have three employees operating the machines, taking about ten minutes to serve each customer. Other customers can wait in the waiting space, accommodating fifteen customers. On average, they receive more than twenty-one customers every hour. They have noticed that they cannot meet the increasing demand. Whenever there is no space in the waiting room, customers prefer to leave rather than wait outside. The engineers are considering making more space for waiting or adding a fried-chip-making machine. Your task is to model this situation and advise.
+// ====
+
+== Random Process
+
+[%hardbreaks]
+- It is better to think of a random process in terms of a function rather than a variable. 
+- In a random function, say, `random(x)`, stem:[x] is the sample space of random outcomes that are possible after performing a certain stochastic process such as tossing a fair coin. 
+- Let's say we are tossing a pair of coins. The outcome does not have to be a number. It can be heads or tails. However, the number of possible outcomes lies in a certain range, say, `range(x)`. 
+
+[stem]
+++++
+\begin{align}
+random(x) &= 
+\begin{cases}
+  Coin 1 &= [H, H, T, T]\\    
+  Coin 2 &= [H, T, H, T]    
+\end{cases}
+\\
+range(x) &= [1, 2, 3, 4] 
+\end{align}
+++++
+
+
+- stem:[x] outputs an outcome from `range(x)` using a probability distribution that represents a likelihood of occurrences of events within the sample space. 
+
+- In the above coin-tossing experiment, the sum of the probabilities of all outcomes should add up to 1 because a coin toss will always yield some output.
+
+stem:[P_{\text{1 or 2 or 3 or 4}} = P_1 + P_2 + P_3 + P_4 = 1]
+
+- stem:[x] can be discrete or continuous.
+
+=== Discrete random variable
+
+[%hardbreaks]
+- A **discrete random variable** can take a distict or separate values. 
+- Discrete random variable is **countably infinite** 
+- A coin toss 
+
+[stem]
+++++
+x = 
+\begin{cases}
+  Head &= [1]\\    
+  Tail &= [0]    
+\end{cases}
+++++
+
+[%hardbreaks]
+- The year that a random student in a school was born 
+- The number of mosquitos born yesterday on earth  
+- Winning time of random athrets to the nearest 2 decimals 
+- The number of cars passing at a certain junction at a certain time 
+- A discrete random variable can be countable finite or approach infinite values. At least you can list a few specific values. 
+- The probability distribution of a discrete random variable is called **Probability Mass Function (PMF)**
+
+=== Continuous random variable
+
+[%hardbreaks]
+- A **continuous random variable** can take any value in an interval. 
+- Continuous random variable is **uncountably infinite** 
+
+[stem]
+++++
+x = 
+\begin{cases}
+  \textbf{Exact mass}\text{ of random organisms on earth}    
+\end{cases}
+++++
+
+[%hardbreaks]
+- Even if you could find a range of this mass, the exact mass of a certain organism at a given time could have several decimal points... 
+- Precisely exact winning time of random athrets 
+- Temperature of a random place in a year measured at a high precision 
+- **A real-world example of a true case of a continuous random variable is rare.**
+- A continuous random variable can be uncountable infinite values. You cannot list a few specific values. 
+- The probability distribution of a continuous random variable is called **Probability Density Function (PDF)**
+
+- Each variable can take on a different value from a probability distribution. 
+
+- A **random process** can be discrete or continuous depending on whether its member variables are discrete or continuous.
+
+=== icon:info-circle[set=fi] Gambler's Ruin 
 [NOTE]
 ====
-Two engineers made three fried-chips-making machines and started a hotel business in town. They currently have three employees operating the machines, taking about ten minutes to serve each customer. Other customers can wait in the waiting space, accommodating fifteen customers. On average, they receive more than twenty-one customers every hour. They have noticed that they cannot meet the increasing demand. Whenever there is no space in the waiting room, customers prefer to leave rather than wait outside. The engineers are considering making more space for waiting or adding a fried-chip-making machine. Your task is to model this situation and advise.
+A gambler has KES 500. They can only bet in increments of KES 100. They can only win or lose KES 100 per bet. They will keep gambling until they either lost all their money (KES 0) or win KES 1000. Simulate this gambling situation. 
+====
+
+._Click to reveal/hide the solution._
+[%collapsible]
+====
+|===
+a|
+
+[stem]
+++++
+\text{gambling outcome, } x = 
+\begin{cases}
+  \text{Win KES 100 (P = 50%)} &= [+100] \\    
+  \text{Lose KES 100 (P = 50%)} &= [-100]   
+\end{cases}
+++++
+
+[source, python]
+----
+import numpy as np
+import random 
+import matplotlib.pyplot as plt 
+
+def gamble():
+    start_money = 500
+    win_money = 1000
+    bet_size = 100
+    win_lose = 100
+    gambling_range = range(win_lose,win_money)
+    simul_gamble = []
+    while start_money in gambling_range:
+        win_lose = bet_size*random.randrange(-1, 2, step=2)
+        start_money += win_lose 
+        simul_gamble.append(start_money)
+    return simul_gamble 
+
+plt.plot(gamble(), marker = 'o')   
+----
+
+|===
+====
+
+
+== Makov Process 
+
+The future evolution of the process depends only on the instant observation of the system and not on the past.
+
+=== icon:info-circle[set=fi] A 2 state markov chain  
+[NOTE]
+====
+Assume you have 2 shirts, white and blue. Their state space is stem:[S = {W,B}].
+[%hardbreaks]
+- The probability of you wearing a white shirt and continue wearing the white shirt is 0.7.
+- The probability of changing the white shirt to a blue shirt is 0.3.
+- Once you're wearing a blue shirt, the probability of you continue wearing the blue shirt is 0.4.
+- The probability of changing the blue shirt to the white shirt is 0.6.
+====
+
+._Click to reveal/hide the solution._
+[%collapsible]
+====
+|===
+a|
+
+[stem]
+++++
+\text{2 Shirts} = 
+\begin{cases}
+P(W\|W) &= 0.7\\
+P(B\|W) &= 0.3\\
+P(W\|B) &= 0.6\\
+P(B\|B) &= 0.4
+\end{cases}
+++++
+
+[%hardbreaks]
+- Suppose you repeat this for several days. Let's say today is Monday and you've already decided that you'll wear a white shirt. stem:[S = {1,0}]
+- What is the probability of you wearing a white or blue shirt on Tuesday through Friday?
+
+[%hardbreaks]
+(i) At the end of Monday: Mon stem:[= S \times \text{trans_matrix}]
+(ii) At the end of Tuesday: Tue stem:[= Mon \times \text{trans_matrix}]
+(iii) At the end of Wednesday: Wed stem:[= Tue \times \text{trans_matrix}]
+
+[source, python]
+----
+nodes = ['White', 'Blue']
+trans_matrix = np.array([[0.7,0.3],[0.6,0.4]])
+pd.DataFrame(trans_matrix, columns=nodes, index=nodes)
+----
+
+[source, python]
+----
+S = np.array([[1,0]])
+Mon = np.matmul(S,trans_matrix)
+Mon
+----
+
+[source, python]
+----
+Tue = np.matmul(Mon,trans_matrix)
+Tue
+----
+
+* If you are not decided, you can set stem:[S = [0.5, 0.5]] or introduce randomness. 
+
+|===
+====
+
+=== icon:info-circle[set=fi] A 3 state markov chain 
+[NOTE]
+====
+[%hardbreaks]
+There are 3 states:
+ - Home 
+ - Bar 
+ - Back Home 
+
+[%hardbreaks]
+- You only have one bar you go to if you want to go out.
+- From state **Home** you can only go out. The first assumption is that you have to go out to be in a bar. 
+- From the **Bar**, you can stay in the bar or go back home. 
+- For each time step, you have a 50% probability of going back home and a 50% probability of staying. 
+- When you are **Back Home**, the only thing that you could do is stay home. It means you won't go out again. 
+====
+
+._Click to reveal/hide the solution._
+[%collapsible]
+====
+|===
+a|
+
+[source, python]
+----
+import numpy as np
+import pandas as pd
+
+nodes = ['Home', 'Bar', 'Back Home']
+trans_matrix = np.array([[0,1,0],[0,0.5,0.5],[0,0,1]])
+pd.DataFrame(trans_matrix, columns=nodes, index=nodes)
+
+# You're in the bar. Where can you go next?
+# All nodes: np.arange(0,len(nodes),1)
+# Bar transitions: trans_matrix[1] 
+print(np.random.choice(np.arange(0,len(nodes),1), p=trans_matrix[1]))
+----
+
+|===
+====
+
+== Monte Carlo Simulation 
+
+Sometimes it is difficult to obtain analytical solution of a problem. Monte carlo methods rely on repeated random sampling to obtain numerial results. Randomness may be used to solve some deterministic problems. 
+
+=== icon:info-circle[set=fi] Calculate the aproximate value of stem:[\pi].
+[NOTE]
+====
+Use monte carlo method to calculate the approximate value of stem:[\pi].
+==== 
+
+._Click to reveal/hide the solution._
+[%collapsible]
+====
+|===
+a|
+
+// [stem]
+// ++++
+// \begin{align}
+// \frac{A_{square}} {A_{circle}} &= \frac{(2rad)^2}{\pi \times rad^2} \\
+// \pi &= \frac{(2rad)^2}{rad^2} \times \frac {A_{circle}} {A_{square}} \\
+// \pi &= \frac{(2rad)^2}{rad^2} \times \frac {N_{circle}} {N_{square}}
+// \end{align}
+// ++++
+
+// * stem:[N] is the number of dots in a square or a circle
+
+
+|===
 ====

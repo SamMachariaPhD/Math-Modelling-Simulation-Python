@@ -6,9 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.17">
 <meta name="description" content="Engineering, Computing, Science, and Philosophy">
-<meta name="author" content="Dr. Sam Macharia, Contact, Home">
+<meta name="keywords" content="Applied Mathematics, Mathematical Modelling, Simulation,">
+<meta name="author" content="Dr. Sam Macharia, Home">
 <link rel="icon" type="image/png" href="favicon.png">
-<title>Modelling and Simulation: Examples</title>
+<title>Modelling and Simulation: Theory and Examples</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -440,31 +441,334 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/styles/github.min.css">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6590816372910687"
-     crossorigin="anonymous"></script>
+<!-- Google Ads. -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6590816372910687"
+     crossorigin="anonymous"></script> -->
+
+<!-- We could also include Javascript
+     for example in this document. -->
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+     (function(){
+     var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+     s1.async=true;
+     s1.src='https://embed.tawk.to/633f134c37898912e96d3fbe/1gen66p79';
+     s1.charset='UTF-8';
+     s1.setAttribute('crossorigin','*');
+     s0.parentNode.insertBefore(s1,s0);
+     })();
+     </script>
+<!--End of Tawk.to Script-->
+
+<!--Start of MailChimp Subscribe Pop Up Script-->
+<!-- <script id="mcjs">!
+     function(c,h,i,m,p){
+          m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)
+     }(document,"script","https://chimpstatic.com/mcjs-connected/js/users/71dd098dcbd6c5501a0a533d3/876294ece12132fcfb943798d.js");
+     </script> -->
+<!--End of MailChimp Subscribe Pop Up Script-->
+
+  <!-- add the applause button style & script (head) -->
+  <!-- <link rel="stylesheet" href="applause-button.css" />
+  <script src="applause-button.js"></script> -->
+
+<!--Start commentics comments-->
+<!-- <script src="http://siliconwit.com/comments/embed.js"></script> -->
+
+<!-- Change some CSS for TOC -->
+<style>
+/* Change CSS overflow for table of contents. */
+#toc.toc2, #toc { overflow: scroll; }
+
+/* Change styling for footer text. */
+/* .footer-text { color: rgba(255,255,255,.8); background: rgba(0,0,0,.8); text-align: center;} */
+
+.footer-text {
+    background: rgba(0,0,0,.8);
+    color: rgba(255,255,255,.8);
+    padding: 1.25em;
+    margin: 0;
+    font-family: "Noto Serif","DejaVu Serif",serif;
+    font-size: 100%;
+    text-align: center;
+    line-height: 1;
+    position: relative;
+    cursor: auto;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    word-wrap: anywhere;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Subscribe button CSS */
+.button-3 {
+  appearance: none;
+  background-color: #2ea44f;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  margin:5px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button-3:focus:not(:focus-visible):not(.focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+.button-3:hover {
+  background-color: #2c974b;
+}
+
+.button-3:focus {
+  box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+  outline: none;
+}
+
+.button-3:disabled {
+  background-color: #94d3a2;
+  border-color: rgba(27, 31, 35, .1);
+  color: rgba(255, 255, 255, .8);
+  cursor: default;
+}
+
+.button-3:active {
+  background-color: #298e46;
+  box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}
+
+</style>
+
 </head>
-<body class="book">
+<body class="book toc2 toc-left">
 <div id="header">
-<h1>Modelling and Simulation: Examples</h1>
+<h1>Modelling and Simulation: Theory and Examples</h1>
 <div class="details">
 <span id="author" class="author">Dr. Sam Macharia</span><br>
 <span id="email" class="email"><a href="https://orcid.org/0000-0002-7326-7502" class="bare">https://orcid.org/0000-0002-7326-7502</a></span><br>
-<span id="author2" class="author">Contact</span><br>
-<span id="email2" class="email"><a href="https://bit.ly/ContactDrSam" class="bare">https://bit.ly/ContactDrSam</a></span><br>
-<span id="author3" class="author">Home</span><br>
-<span id="email3" class="email"><a href="https://SiliconWit.com/" class="bare">https://SiliconWit.com/</a></span><br>
+<span id="author2" class="author">Home</span><br>
+<span id="email2" class="email"><a href="https://SiliconWit.com" class="bare">https://SiliconWit.com</a></span><br>
 </div>
-<div id="toc" class="toc">
+<div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_random_process">1. Random Process</a>
+<ul class="sectlevel2">
+<li><a href="#_discrete_random_variable">1.1. Discrete random variable</a></li>
+<li><a href="#_continuous_random_variable">1.2. Continuous random variable</a></li>
+<li><a href="#_gamblers_ruin">1.3. <span class="icon"><i class="fa fa-info-circle"></i></span> Gambler&#8217;s Ruin</a></li>
+</ul>
+</li>
+<li><a href="#_makov_process">2. Makov Process</a>
+<ul class="sectlevel2">
+<li><a href="#_a_2_state_markov_chain">2.1. <span class="icon"><i class="fa fa-info-circle"></i></span> A 2 state markov chain</a></li>
+<li><a href="#_a_3_state_markov_chain">2.2. <span class="icon"><i class="fa fa-info-circle"></i></span> A 3 state markov chain</a></li>
+</ul>
+</li>
+<li><a href="#_monte_carlo_simulation">3. Monte Carlo Simulation</a>
+<ul class="sectlevel2">
+<li><a href="#_calculate_the_aproximate_value_of_pi">3.1. <span class="icon"><i class="fa fa-info-circle"></i></span> Calculate the aproximate value of \(\pi\).</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 <div id="content">
-<div class="sect1">
-<h2 id="_introduction">1. Introduction</h2>
+<div id="preamble">
 <div class="sectionbody">
+<!-- Website logo and Subscribe button -->
+
+<div style="display: flex; justify-content: flex-end">
+    <div>
+<!-- cellspacing="0" cellpadding="0"  -->
+<table border="1" frame="void" rules="all">
+    <tr>
+      <td class="first">
+        <a href="https://siliconwit.com/">
+            <img alt="SiliconWit" src="SiWit.png" width="50" height="50">
+        </a>
+      </td>
+      <td class="second">
+        <button class="button-3" onclick="location.href='https://50312631.sibforms.com/serve/MUIEAMNpGV92xSPcDr_46NegYWAVvHPghmb-X7Mk-vXlVoMCv9HHTuNuahdOqK57NP8x4zxM22qPmxUgAdBtg4XOOcWwqQzEDR3BrSfpzO2nagCGGlV1WXEBTOvf90PUd6UUMxZ1PmgLpZ4w0pXK0Iqg5brcEwooD91t2lP1hZd7LUtYh4SVBBKHJ2il_RHD5zB4dhSVuMbiVVSb';"> 
+            Subscribe to SiliconWit.com</button>
+      </td>
+    </tr>
+  </table>
+    </div>
+</div>  
+
+  <!-- <div style="display: flex; justify-content: flex-end">
+    <div>I'm on the right</div>
+  </div> -->
+</div>
+</div>
+<div class="sect1">
+<h2 id="_random_process">1. Random Process</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>It is better to think of a random process in terms of a function rather than a variable.</p>
+</li>
+<li>
+<p>In a random function, say, <code>random(x)</code>, \(x\) is the sample space of random outcomes that are possible after performing a certain stochastic process such as tossing a fair coin.</p>
+</li>
+<li>
+<p>Let&#8217;s say we are tossing a pair of coins. The outcome does not have to be a number. It can be heads or tails. However, the number of possible outcomes lies in a certain range, say, <code>range(x)</code>.</p>
+</li>
+</ul>
+</div>
+<div class="stemblock">
+<div class="content">
+\[\begin{align}
+random(x) &amp;=
+\begin{cases}
+  Coin 1 &amp;= [H, H, T, T]\\
+  Coin 2 &amp;= [H, T, H, T]
+\end{cases}
+\\
+range(x) &amp;= [1, 2, 3, 4]
+\end{align}\]
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>\(x\) outputs an outcome from <code>range(x)</code> using a probability distribution that represents a likelihood of occurrences of events within the sample space.</p>
+</li>
+<li>
+<p>In the above coin-tossing experiment, the sum of the probabilities of all outcomes should add up to 1 because a coin toss will always yield some output.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>\(P_{\text{1 or 2 or 3 or 4}} = P_1 + P_2 + P_3 + P_4 = 1\)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>\(x\) can be discrete or continuous.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_discrete_random_variable">1.1. Discrete random variable</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>A <strong>discrete random variable</strong> can take a distict or separate values.</p>
+</li>
+<li>
+<p>Discrete random variable is <strong>countably infinite</strong></p>
+</li>
+<li>
+<p>A coin toss</p>
+</li>
+</ul>
+</div>
+<div class="stemblock">
+<div class="content">
+\[x =
+\begin{cases}
+  Head &amp;= [1]\\
+  Tail &amp;= [0]
+\end{cases}\]
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The year that a random student in a school was born</p>
+</li>
+<li>
+<p>The number of mosquitos born yesterday on earth</p>
+</li>
+<li>
+<p>Winning time of random athrets to the nearest 2 decimals</p>
+</li>
+<li>
+<p>The number of cars passing at a certain junction at a certain time</p>
+</li>
+<li>
+<p>A discrete random variable can be countable finite or approach infinite values. At least you can list a few specific values.</p>
+</li>
+<li>
+<p>The probability distribution of a discrete random variable is called <strong>Probability Mass Function (PMF)</strong></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_continuous_random_variable">1.2. Continuous random variable</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>A <strong>continuous random variable</strong> can take any value in an interval.</p>
+</li>
+<li>
+<p>Continuous random variable is <strong>uncountably infinite</strong></p>
+</li>
+</ul>
+</div>
+<div class="stemblock">
+<div class="content">
+\[x =
+\begin{cases}
+  \textbf{Exact mass}\text{ of random organisms on earth}
+\end{cases}\]
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Even if you could find a range of this mass, the exact mass of a certain organism at a given time could have several decimal points&#8230;&#8203;</p>
+</li>
+<li>
+<p>Precisely exact winning time of random athrets</p>
+</li>
+<li>
+<p>Temperature of a random place in a year measured at a high precision</p>
+</li>
+<li>
+<p><strong>A real-world example of a true case of a continuous random variable is rare.</strong></p>
+</li>
+<li>
+<p>A continuous random variable can be uncountable infinite values. You cannot list a few specific values.</p>
+</li>
+<li>
+<p>The probability distribution of a continuous random variable is called <strong>Probability Density Function (PDF)</strong></p>
+</li>
+<li>
+<p>Each variable can take on a different value from a probability distribution.</p>
+</li>
+<li>
+<p>A <strong>random process</strong> can be discrete or continuous depending on whether its member variables are discrete or continuous.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_gamblers_ruin">1.3. <span class="icon"><i class="fa fa-info-circle"></i></span> Gambler&#8217;s Ruin</h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -473,18 +777,275 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Two engineers made three fried-chips-making machines and started a hotel business in town. They currently have three employees operating the machines, taking about ten minutes to serve each customer. Other customers can wait in the waiting space, accommodating fifteen customers. On average, they receive more than twenty-one customers every hour. They have noticed that they cannot meet the increasing demand. Whenever there is no space in the waiting room, customers prefer to leave rather than wait outside. The engineers are considering making more space for waiting or adding a fried-chip-making machine. Your task is to model this situation and advise.</p>
+<p>A gambler has KES 500. They can only bet in increments of KES 100. They can only win or lose KES 100 per bet. They will keep gambling until they either lost all their money (KES 0) or win KES 1000. Simulate this gambling situation.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
+<details>
+<summary class="title"><em>Click to reveal/hide the solution.</em></summary>
+<div class="content">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="stemblock">
+<div class="content">
+\[\text{gambling outcome, } x =
+\begin{cases}
+  \text{Win KES 100 (P = 50%)} &amp;= [+100] \\
+  \text{Lose KES 100 (P = 50%)} &amp;= [-100]
+\end{cases}\]
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">import numpy as np
+import random
+import matplotlib.pyplot as plt
+
+def gamble():
+    start_money = 500
+    win_money = 1000
+    bet_size = 100
+    win_lose = 100
+    gambling_range = range(win_lose,win_money)
+    simul_gamble = []
+    while start_money in gambling_range:
+        win_lose = bet_size*random.randrange(-1, 2, step=2)
+        start_money += win_lose
+        simul_gamble.append(start_money)
+    return simul_gamble
+
+plt.plot(gamble(), marker = 'o')</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
 </div>
 </div>
 </div>
-<div id="footer">
-<div id="footer-text">
-Last updated 2022-09-29 08:03:27 +0300
+<div class="sect1">
+<h2 id="_makov_process">2. Makov Process</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The future evolution of the process depends only on the instant observation of the system and not on the past.</p>
+</div>
+<div class="sect2">
+<h3 id="_a_2_state_markov_chain">2.1. <span class="icon"><i class="fa fa-info-circle"></i></span> A 2 state markov chain</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Assume you have 2 shirts, white and blue. Their state space is \(S = {W,B}\).</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The probability of you wearing a white shirt and continue wearing the white shirt is 0.7.</p>
+</li>
+<li>
+<p>The probability of changing the white shirt to a blue shirt is 0.3.</p>
+</li>
+<li>
+<p>Once you&#8217;re wearing a blue shirt, the probability of you continue wearing the blue shirt is 0.4.</p>
+</li>
+<li>
+<p>The probability of changing the blue shirt to the white shirt is 0.6.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<details>
+<summary class="title"><em>Click to reveal/hide the solution.</em></summary>
+<div class="content">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="stemblock">
+<div class="content">
+\[\text{2 Shirts} =
+\begin{cases}
+P(W|W) &amp;= 0.7\\
+P(B|W) &amp;= 0.3\\
+P(W|B) &amp;= 0.6\\
+P(B|B) &amp;= 0.4
+\end{cases}\]
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Suppose you repeat this for several days. Let&#8217;s say today is Monday and you&#8217;ve already decided that you&#8217;ll wear a white shirt. \(S = {1,0}\)</p>
+</li>
+<li>
+<p>What is the probability of you wearing a white or blue shirt on Tuesday through Friday?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>(i) At the end of Monday: Mon \(= S \times \text{trans_matrix}\)<br>
+(ii) At the end of Tuesday: Tue \(= Mon \times \text{trans_matrix}\)<br>
+(iii) At the end of Wednesday: Wed \(= Tue \times \text{trans_matrix}\)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">nodes = ['White', 'Blue']
+trans_matrix = np.array([[0.7,0.3],[0.6,0.4]])
+pd.DataFrame(trans_matrix, columns=nodes, index=nodes)</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">S = np.array([[1,0]])
+Mon = np.matmul(S,trans_matrix)
+Mon</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">Tue = np.matmul(Mon,trans_matrix)
+Tue</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you are not decided, you can set \(S = [0.5, 0.5\)] or introduce randomness.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</div>
+<div class="sect2">
+<h3 id="_a_3_state_markov_chain">2.2. <span class="icon"><i class="fa fa-info-circle"></i></span> A 3 state markov chain</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>There are 3 states:<br>
+ - Home<br>
+ - Bar<br>
+ - Back Home</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You only have one bar you go to if you want to go out.</p>
+</li>
+<li>
+<p>From state <strong>Home</strong> you can only go out. The first assumption is that you have to go out to be in a bar.</p>
+</li>
+<li>
+<p>From the <strong>Bar</strong>, you can stay in the bar or go back home.</p>
+</li>
+<li>
+<p>For each time step, you have a 50% probability of going back home and a 50% probability of staying.</p>
+</li>
+<li>
+<p>When you are <strong>Back Home</strong>, the only thing that you could do is stay home. It means you won&#8217;t go out again.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<details>
+<summary class="title"><em>Click to reveal/hide the solution.</em></summary>
+<div class="content">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">import numpy as np
+import pandas as pd
+
+nodes = ['Home', 'Bar', 'Back Home']
+trans_matrix = np.array([[0,1,0],[0,0.5,0.5],[0,0,1]])
+pd.DataFrame(trans_matrix, columns=nodes, index=nodes)
+
+# You're in the bar. Where can you go next?
+# All nodes: np.arange(0,len(nodes),1)
+# Bar transitions: trans_matrix[1]
+print(np.random.choice(np.arange(0,len(nodes),1), p=trans_matrix[1]))</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_monte_carlo_simulation">3. Monte Carlo Simulation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sometimes it is difficult to obtain analytical solution of a problem. Monte carlo methods rely on repeated random sampling to obtain numerial results. Randomness may be used to solve some deterministic problems.</p>
+</div>
+<div class="sect2">
+<h3 id="_calculate_the_aproximate_value_of_pi">3.1. <span class="icon"><i class="fa fa-info-circle"></i></span> Calculate the aproximate value of \(\pi\).</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Use monte carlo method to calculate the approximate value of \(\pi\).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<details>
+<summary class="title"><em>Click to reveal/hide the solution.</em></summary>
+<div class="content">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+</table>
+</div>
+</details>
+</div>
+</div>
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
@@ -494,5 +1055,39 @@ if (!hljs.initHighlighting.called) {
   ;[].slice.call(document.querySelectorAll('pre.highlight > code')).forEach(function (el) { hljs.highlightBlock(el) })
 }
 </script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "all" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+<p class="footer-text">
+<!-- footer -->
+
+<!-- Copyright text  -->
+SiliconWit.com &copy; 2021-<script>document.write(new Date().getFullYear())</script> <!-- &#9997; Sam Macharia, PhD -->
+&emsp;
+<!-- Subscribe button -->
+<button class="button-3" onclick="location.href='https://50312631.sibforms.com/serve/MUIEAMNpGV92xSPcDr_46NegYWAVvHPghmb-X7Mk-vXlVoMCv9HHTuNuahdOqK57NP8x4zxM22qPmxUgAdBtg4XOOcWwqQzEDR3BrSfpzO2nagCGGlV1WXEBTOvf90PUd6UUMxZ1PmgLpZ4w0pXK0Iqg5brcEwooD91t2lP1hZd7LUtYh4SVBBKHJ2il_RHD5zB4dhSVuMbiVVSb';"> Subscribe</button>
+
+</p>
 </body>
 </html>
