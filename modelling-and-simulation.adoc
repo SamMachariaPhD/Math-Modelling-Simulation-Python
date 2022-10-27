@@ -271,14 +271,70 @@ print(np.random.choice(np.arange(0,len(nodes),1), p=trans_matrix[1]))
 |===
 ====
 
+== Differentiation and Integration 
+
+=== icon:info-circle[set=fi] Using Python to find derivatives and integrals .
+[NOTE]
+====
+Use the `Python` `sympy` package to solve the following 
+
+[%hardbreaks]
+(a) stem:[\frac{dy}{dx} = x^2]
+(b) stem:[\frac{dy}{dx} = cos(x)]
+(c) stem:[\frac{dy}{dx} = e^{x^2}] 
+(d) stem:[\frac{d^3y}{dx^3} = x^4] 
+(e) stem:[\int cos(x)] 
+(f) stem:[\int_0^\infty e^{-x}] 
+(g) stem:[\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} e^{- x^{2} - y^{2}}\, dx\, dy] 
+
+Use the `Python` `scipy` package to solve and plot the following
+
+[%hardbreaks]
+(a) stem:[\frac{dy(t)}{dt} = -k \ y(t)]
+stem:[k = 0.3; y_0 = 5]
+(b) stem:[\frac{dy(t)}{dt} = ke^t + y] 
+====
+
+._Click to reveal/hide the solution._
+[%collapsible]
+====
+|===
+a|
+
+
+|===
+====
+
+=== icon:info-circle[set=fi] Spread of virus using the SIR Model.
+[NOTE]
+====
+A new infectious flu virus is discovered to have infected stem:[10\%] of a community. The rate of infection is stem:[0.35] and that of recovery is stem:[0.1]. Given that no one has recovered so far, use the SIR Model to simulatet the spread of this virus. 
+====
+
+._Click to reveal/hide the solution._
+[%collapsible]
+====
+|===
+a|
+
+
+|===
+====
+
 == Monte Carlo Simulation 
 
-Sometimes it is difficult to obtain analytical solution of a problem. Monte carlo methods rely on repeated random sampling to obtain numerial results. Randomness may be used to solve some deterministic problems. 
+Sometimes it is difficult to obtain an analytical solution of a problem. Monte carlo methods rely on repeated random sampling to obtain numerial results. Randomness may be used to solve some deterministic problems. 
 
 === icon:info-circle[set=fi] Calculate the aproximate value of stem:[\pi].
 [NOTE]
 ====
-Use monte carlo method to calculate the approximate value of stem:[\pi].
+Use the monte carlo method to evaluate  
+
+[%hardbreaks]
+(a) the approximate value of stem:[\pi].
+(b) the approximate area of a triangle. 
+(c) stem:[\int_{-3}^{3} e^{x^2}]
+(d) stem:[\int_0^{15} \Big( \big(7x^3 + 20x^2 + 45x + 5 \big)^{\frac{1}{3}} \Big) e^{-\frac{1}{5}x} dx ]
 ==== 
 
 ._Click to reveal/hide the solution._
@@ -301,3 +357,7 @@ a|
 
 |===
 ====
+
+++++
+include::startComments.html[]
+++++

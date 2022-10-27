@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1165,8 +1166,8 @@ print(np.random.choice(np.arange(0,len(nodes),1), p=trans_matrix[1]))</code></pr
 <!-- Start commentics php comment section -->
 
 <?php
-$cmtx_identifier = '1';
-$cmtx_reference  = 'Comments';
+$cmtx_identifier = 'modelling-and-simulation';
+$cmtx_reference  = 'modelling-and-simulation';
 $cmtx_folder     = '/comments/';
 require($_SERVER['DOCUMENT_ROOT'] . $cmtx_folder . 'frontend/index.php');
 ?>
